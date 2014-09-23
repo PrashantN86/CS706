@@ -1,6 +1,0 @@
-import string
-from numpy import genfromtxt
-ufo_dataset = genfromtxt(open('ufo_awesome.tsv',mode='r'),delimiter="   ",dtype=None,invalid_raise=False)
-
-for data in ufo_dataset[:10] :
-    print data
