@@ -43,24 +43,34 @@ while recalculate:
 print "weights:"
 print weights
 
+x_sum=y_sum=0.
+count=0
 for x in data:
        # print x[0],x[1],color_map[x[2]]
-        plot(x[0],x[1],color_map[x[2]])
+		x_sum=x_sum+x[0]
+		y_sum=y_sum+x[1]
+		count=count+1
 
-x1,x2,n,m,b=-100.,100.,10,-2.,-156.23
-x=r_[x1:x2:n*1j]
-plot(x,m*x+b, color='r')
+x_shift=x_sum/count
+y_shift=y_sum/count
 
-x1,x2,n,m,b=-100.,100.,10,13./12.,-2803./240.
-x=r_[x1:x2:n*1j]
-plot(x,m*x+b, color='b')
+for x in data:
+	plot(x[0]-x_shift,x[1]-y_shift,color_map[x[2]])
 
-x1,x2,n,m,b=-100.,100.,10,6./34.,12817./340.
-x=r_[x1:x2:n*1j]
-plot(x,m*x+b, color='g')
+#x1,x2,n,m,b=-100,100.,10,-2.,-156.23
+#x=r_[x1:x2:n*1j]
+#plot(x,m*x+b, color='r')
 
-#plot([0, 902/50], [(-902/15),0], color='g', linestyle='-', linewidth=1)
-#plot([65/9, 0], [0,13], color='r', linestyle='-', linewidth=1)
-#plot([249/40, 0], [0,249/65], color='b', linestyle='-', linewidth=1)
+#x1,x2,n,m,b=-100.,100.,10,13./12.,-2803./240.
+#x=r_[x1:x2:n*1j]
+#plot(x,m*x+b, color='b')
+
+#x1,x2,n,m,b=-100.,100.,10,6./34.,12817./340.
+#x=r_[x1:x2:n*1j]
+#plot(x,m*x+b, color='g')
+
+plot([0,weights[0][0]], [0,weights[0][1]], color='r', linestyle='-', linewidth=1)
+plot([0,weights[1][0]], [0,weights[1][1]], color='b', linestyle='-', linewidth=1)
+plot([0,weights[2][0]], [0,weights[2][1]], color='g', linestyle='-', linewidth=1)
 
 show()

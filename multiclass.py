@@ -9,12 +9,12 @@ w2 = [50,70]
 w3 = [70,30]
 #print training_data
 
-f = open('multiclassdata.csv','w')
+f = open('multiclassdatatest.csv','w')
 
 
 start = time.clock();
-for i in range(0,101,20) :
-    for j in range(0,101,20) :
+for i in range(0,101,5) :
+    for j in range(0,101,5) :
         x = []
         x.append(i)
         x.append(j)
