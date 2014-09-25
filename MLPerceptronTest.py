@@ -17,8 +17,8 @@ weights=[[-410.,-250.],[-90.,640.],[500.,-390.]]
 
 #weights=[[  -180.,   -100.],[   -60.,    320.],[  240.,  -220.]]
 
-count_correct=0
-count_incorrect=0
+count_correct=[0,0,0]
+count_incorrect=[0,0,0]
 
 for index in xrange(len(data)):
 	x = data[index][:2]
@@ -26,10 +26,12 @@ for index in xrange(len(data)):
 	results=[dot(x,w) for w in weights]
 	max_val,max_val_index=max_value_plus_index(results)
 	print expected_outcome," ",max_val_index
-	if max_val_index+1 == expected_outcome:
-		count_correct=count_correct+1
+	if max_val_index == expected_outcome-1:
+		count_correct[expected_outcome-1]=count_correct[expected_outcome-1]+1
 	else:
-		count_incorrect=count_incorrect+1
+		count_incorrect[expected_outcome-1]=count_incorrect[expected_outcome-1]+1
+	print count_correct
+	print count_incorrect
 
 print "Correct",count_correct
 print "InCorrect",count_incorrect

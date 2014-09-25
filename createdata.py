@@ -9,7 +9,7 @@ w2 = [50,70]  #go
 w3 = [70,30]  #ro
 #print training_data
 
-f = open('datatrain.csv','w')
+f = open('multiclassdatatest.csv','w')
 
 
 for i in range(0,101,5) :
@@ -23,13 +23,13 @@ for i in range(0,101,5) :
         result3 = sqrt((w3[0]-i)**2 + (w3[1]-j)**2)
         #print result1,result2,result3
         if(result1 <= result2 and result1 <= result3) :
-			s = i,j,1
-			f.write(str(s)+"\n")
+            s = i,j,1
+            f.write(str(s)+"\n")
 			plot(i,j,'bo')
-		else if result2 <= result3 and result2 <= result1:
+        else if result2 <= result3 and result2 <= result1:
         	s = i,j,2
         	f.write(str(s)+"\n")
-        	plot(i,j,'go')
+            plot(i,j,'go')
 		else:
 			s=i,j,3
 			f.write(str(s)+"\n")
