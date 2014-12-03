@@ -1,0 +1,11 @@
+windmill 10
+rainbow 6
+teacup 9
+dog 1
+moon 3
+t-shirt 8
+pen 4
+key 2
+suitcase 7
+airplane 0
+pizza 5
